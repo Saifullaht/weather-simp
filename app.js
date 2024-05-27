@@ -103,7 +103,7 @@ function formatDate(timestamp) {
     }
   }
   
-  function search(city) {
+  function search (city) {
     let apiKey = "5ce165099db98eb1a4172c9b8eea4597";
     let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}&units=metric`;
   
@@ -117,11 +117,15 @@ function formatDate(timestamp) {
   let searchedCity = document.querySelector("#submit-btn");
   searchedCity.addEventListener("click", function (event) {
     event.preventDefault();
+    city.innerText = "Loading..."; 
+  
+
   
     let cityInput = document.querySelector("#searched-city");
   
     search(cityInput.value);
   });
+  city.innerText = "";
   
   let currentLocation = document.querySelector("#location-btn");
   currentLocation.addEventListener("click", function (event) {
